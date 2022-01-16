@@ -5,8 +5,6 @@ E
 internal/log/index.go,0\2\02afba8c45041f4f9f95d695857b65d4d1366a99
 G
 internal/log/segment.go,a\a\aa6480f22642444555dca9ffed05e28392918ca9
-6
-go.mod,c\4\c47645c391ad0571c40779079363c9d48412e18b
 F
 internal/server/log.go,f\e\fe50178b9bc234026d13358df2b1a78721f5e761
 H
@@ -15,3 +13,9 @@ C
 internal/log/log.go,9\a\9a2d19aa0ca414544759f54c55d3e3dc079cca52
 ?
 api/v1/error.go,b\1\b1eca28fea273e4eff35d0089873020d130e9743
+@
+test/ca-csr.json,f\3\f3a360ffc522e6eceb71b8f43828a47280cac825
+C
+test/ca-config.json,3\6\36a5c6d51225a71f36f23a2c62c3b2b67ab911c3
+D
+test/server-csr.json,d\f\df2728c825dc2d46acca5e8c6bd1ad25294ec8e3

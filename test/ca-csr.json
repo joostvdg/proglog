@@ -1,0 +1,17 @@
+{
+	"cn": "Kearos CA",
+	"key": {
+		"algo": "rsa",
+		"size": 2048
+	},
+	"names": [
+		{
+			"C": "NL",
+			"L": "Utrecht",
+			"ST": "Utrecht",
+			"O": "Kearos Corp",
+			"OU": "CA Services"
+		}
+	]
+}
+
