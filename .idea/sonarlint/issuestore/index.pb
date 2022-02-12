@@ -19,3 +19,5 @@ C
 test/ca-config.json,3\6\36a5c6d51225a71f36f23a2c62c3b2b67ab911c3
 D
 test/server-csr.json,d\f\df2728c825dc2d46acca5e8c6bd1ad25294ec8e3
+@
+api/v1/log.proto,a\9\a932eb8f634eafa7968261ccf579d43a9e1ab8a5
