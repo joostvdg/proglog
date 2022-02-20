@@ -2,6 +2,7 @@ package server
 
 import (
 	"context"
+	"time"
 
 	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
 	grpc_auth "github.com/grpc-ecosystem/go-grpc-middleware/auth"
@@ -14,8 +15,6 @@ import (
 
 	api "github.com/joostvdg/proglog/api/v1"
 
-	"time"
-
 	grpc_zap "github.com/grpc-ecosystem/go-grpc-middleware/logging/zap"
 	_ "github.com/grpc-ecosystem/go-grpc-middleware/tags"
 	"go.opencensus.io/plugin/ocgrpc"
@@ -27,8 +26,9 @@ import (
 )
 
 type Config struct {
-	CommitLog  CommitLog
-	Authorizer Authorizer
+	CommitLog   CommitLog
+	Authorizer  Authorizer
+	GetServerer GetServerer
 }
 
 const (
@@ -153,6 +153,18 @@ func (s *grpcServer) ConsumeStream(req *api.ConsumeRequest, stream api.Log_Consu
 			req.Offset++
 		}
 	}
+}
+
+func (s *grpcServer) GetServers(ctx context.Context, req *api.GetServerRequest) (*api.GetServerResponse, error) {
+	servers, err := s.GetServerer.GetServers()
+	if err != nil {
+		return nil, err
+	}
+	return &api.GetServerResponse{Servers: servers}, nil
+}
+
+type GetServerer interface {
+	GetServers() ([]*api.Server, error)
 }
 
 type CommitLog interface {

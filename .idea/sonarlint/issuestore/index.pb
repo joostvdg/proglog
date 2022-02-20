@@ -19,5 +19,13 @@ C
 test/ca-config.json,3\6\36a5c6d51225a71f36f23a2c62c3b2b67ab911c3
 D
 test/server-csr.json,d\f\df2728c825dc2d46acca5e8c6bd1ad25294ec8e3
+P
+ internal/discovery/membership.go,9\0\9021d3d9aaa3b2bb73ded6af071427adb68a35d5
+C
+internal/log/fsm.go,c\a\caae015e992373540c0afcffa090fcd6b05d228a
+F
+internal/log/config.go,c\5\c561ac96ce17acff73066a40605b22cff46814b8
+E
+api/v1/log_grpc.pb.go,5\0\50e45bf1c3ea9fa67966ad68f607d4bf484d6933
 @
-api/v1/log.proto,a\9\a932eb8f634eafa7968261ccf579d43a9e1ab8a5
+api/v1/log.pb.go,4\6\46da0ea96254d8195e23c8b93d9019557450d617
