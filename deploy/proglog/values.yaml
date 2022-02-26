@@ -1,0 +1,16 @@
+# Default values for proglog.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+image:
+  repository: caladreas/proglog
+  tag: 0.1.7
+  pullPolicy: IfNotPresent
+
+# local-path, nfs-client, longhorn
+storageClass: nfs-client
+storage: 1Gi
+replicaCount: 3
+rpcPort: 8400
+serfPort: 8401
+

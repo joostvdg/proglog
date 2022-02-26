@@ -59,3 +59,27 @@ $(CONFIG_PATH)/policy.csv:
 .PHONY: test
 test: $(CONFIG_PATH)/policy.csv $(CONFIG_PATH)/model.conf
 	go test -race ./...
+
+.PHONY: docker-build
+docker-build:
+	docker buildx build . --platform linux/amd64 --tag caladreas/proglog:latest --load
+
+.PHONY: dbuild
+docker-run:
+	docker run --name proglog caladreas/proglog:latest
+
+.PHONY: dbuild
+dbuild:
+	docker buildx build . --platform linux/arm64,linux/amd64 --tag caladreas/proglog:latest --push
+
+.PHONY: multiarch
+multiarch:
+	CGO_ENABLE=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -o bin/$(TARGETARCH)/proglog ./cmd/proglog
+
+.PHONY: linux
+linux:
+	CGO_ENABLE=0 GOOS=linux GOARCH=amd64 go build -o bin/proglog ./cmd/proglog
+
+.PHONY: clean
+clean:
+	rm -rf /tmp/proglog

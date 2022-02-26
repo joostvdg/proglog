@@ -1,16 +1,12 @@
 
 E
 internal/log/store.go,7\3\7396fa5a0794ffcc75f182ac77279d262039ccae
-E
-internal/log/index.go,0\2\02afba8c45041f4f9f95d695857b65d4d1366a99
 G
 internal/log/segment.go,a\a\aa6480f22642444555dca9ffed05e28392918ca9
 F
 internal/server/log.go,f\e\fe50178b9bc234026d13358df2b1a78721f5e761
 H
 internal/log/log_test.go,f\9\f9aec1f1a6e665137a00db2d53ec63937682c304
-C
-internal/log/log.go,9\a\9a2d19aa0ca414544759f54c55d3e3dc079cca52
 ?
 api/v1/error.go,b\1\b1eca28fea273e4eff35d0089873020d130e9743
 @
@@ -23,9 +19,21 @@ P
  internal/discovery/membership.go,9\0\9021d3d9aaa3b2bb73ded6af071427adb68a35d5
 C
 internal/log/fsm.go,c\a\caae015e992373540c0afcffa090fcd6b05d228a
-F
-internal/log/config.go,c\5\c561ac96ce17acff73066a40605b22cff46814b8
 E
 api/v1/log_grpc.pb.go,5\0\50e45bf1c3ea9fa67966ad68f607d4bf484d6933
 @
 api/v1/log.pb.go,4\6\46da0ea96254d8195e23c8b93d9019557450d617
+@
+api/v1/log.proto,a\9\a932eb8f634eafa7968261ccf579d43a9e1ab8a5
+S
+#internal/loadbalance/picker_test.go,1\8\18970a43234aec56df77717069d16c914b7bf7ae
+N
+internal/loadbalance/picker.go,0\c\0cccdb716f6379b6040fcdc4577d92b625aa52c4
+L
+internal/agent/agent_test.go,0\2\0253eaa04bddb1e9c8ad46a7aa20a2365c8e9096
+P
+ internal/loadbalance/resolver.go,9\3\934cafcb32ea85bbf07910b83dea1e07888b1cfd
+6
+go.sum,5\a\5aa1ac64de2b0c4821af9393b44965020e4a521d
+U
+%internal/loadbalance/resolver_test.go,f\6\f63cf4d7674b83f9e3d33e760aefd3b045f3eecd
