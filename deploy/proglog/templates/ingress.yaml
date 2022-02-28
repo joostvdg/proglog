@@ -1,0 +1,20 @@
+{{- if .Values.ingress.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: proglog
+  namespace: proglog
+spec:
+  ingressClassName: contour
+  rules:
+    - host: goji.fritz.box
+      http:
+        paths:
+          - backend:
+              service:
+                name: proglog
+                port:
+                  number: 8400
+            path: /proglog
+            pathType: Prefix
+{{- if .Values.ingress.enabled }}
