@@ -14,3 +14,10 @@ replicaCount: 3
 rpcPort: 8400
 serfPort: 8401
 
+hostname: goji.fritz.box
+externalPath: /proglog
+ingress:
+  enabled: false
+httpproxy:
+  enabled: true
+
