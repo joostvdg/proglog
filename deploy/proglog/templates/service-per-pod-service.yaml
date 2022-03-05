@@ -1,0 +1,14 @@
+---
+{{ if .Values.service.metacontroller }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-per-pod
+  namespace: metacontroller
+spec:
+  selector:
+    app: service-per-pod
+  ports:
+    - port: 80
+      targetPort: 8080
+{{ end }}

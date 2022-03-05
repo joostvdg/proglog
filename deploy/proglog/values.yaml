@@ -21,3 +21,5 @@ ingress:
 httpproxy:
   enabled: true
 
+service:
+  metacontroller: true

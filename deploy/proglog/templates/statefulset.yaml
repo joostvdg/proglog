@@ -1,10 +1,14 @@
-# START: initial
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: {{ include "proglog.fullname" . }}
   namespace: {{ .Release.Namespace }}
   labels: {{ include "proglog.labels" . | nindent 4 }}
+  {{ if .Values.service.metacontroller }}
+  annotations:
+    service-per-pod-label: "statefulset.kubernetes.io/pod-name"
+    service-per-pod-ports: "{{ .Values.rpcPort }}:{{ .Values.rpcPort }}"
+  {{ end }}
 spec:
   selector:
     matchLabels: {{ include "proglog.selectorLabels" . | nindent 6 }}
@@ -15,9 +19,6 @@ spec:
       name: {{ include "proglog.fullname" . }}
       labels: {{ include "proglog.labels" . | nindent 8 }}
     spec:
-      # initContainers...
-      # END: initial
-      # START: initial_containers
       initContainers:
         - name: {{ include "proglog.fullname" . }}-config-init
           image: busybox
@@ -37,12 +38,6 @@ spec:
           volumeMounts:
             - name: datadir
               mountPath: /var/run/proglog
-          # START: initial
-      # END: initial_containers
-      # START: initial
-      # containers...
-      # END: initial
-      # START: containers
       containers:
         - name: {{ include "proglog.fullname" . }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -53,10 +48,6 @@ spec:
               name: serf
           args:
             - --config-file=/var/run/proglog/config.yaml
-          # END: initial
-          # probes...
-          # END: containers
-          # START: probes
           readinessProbe:
             exec:
               command:
@@ -73,13 +64,9 @@ spec:
                 - |-
                   /bin/grpc_health_probe -addr=$HOSTNAME.proglog.{{.Release.Namespace}}.svc.cluster.local:{{.Values.rpcPort}}
             initialDelaySeconds: 10
-          # END: probes
-          # START: containers
           volumeMounts:
             - name: datadir
               mountPath: /var/run/proglog
-      # END: containers
-      # START: initial
   volumeClaimTemplates:
     - metadata:
         name: datadir

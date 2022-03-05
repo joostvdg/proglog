@@ -1,0 +1,10 @@
+---
+{{ if .Values.service.metacontroller }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: metacontroller
+  name: service-per-pod-hooks
+data:
+{{ (.Files.Glob "hooks/*").AsConfig | indent 2 }}
+{{ end }}
