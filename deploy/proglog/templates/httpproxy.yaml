@@ -1,4 +1,4 @@
-{{- if .Values.httpproxy.enabled }}
+{{ if .Values.httpproxy.enabled }}
 apiVersion: projectcontour.io/v1
 kind: HTTPProxy
 metadata:
@@ -18,4 +18,4 @@ spec:
       services:
         - name: {{ include "proglog.fullname" . }}
           port: {{ .Values.rpcPort }}
-{{- if .Values.httpproxy.enabled }}
+{{ end }}
